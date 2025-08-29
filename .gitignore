@@ -6,6 +6,10 @@ node_modules/
 dist/
 build/
 
+# Include essential static assets
+!kabbatec-slides/dist/images/
+!kabbatec-slides/public/images/
+
 # Environment variables
 .env
 .env.local
