@@ -19,6 +19,9 @@ import { Button } from '@/components/ui/button'
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+
   const slides = useMemo(() => [
     <LiquidHero key="1-hero" title="Kabbatec" subtitle="Estratégia de Marketing Digital" />,
     <VisaoGeralSlide key="2-visao" />,
@@ -34,6 +37,28 @@ function App() {
 
   const go = (delta) => setCurrentSlide((s) => Math.max(0, Math.min(slides.length - 1, s + delta)))
 
+  // Touch swipe handling
+  const minSwipeDistance = 50
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) go(1)
+    if (isRightSwipe) go(-1)
+  }
+
   // Remover troca de slide por scroll para permitir conteúdo longo por slide
   useEffect(() => {
     const preventSpaceScroll = (e) => {
@@ -48,24 +73,47 @@ function App() {
   return (
     <div
       onKeyDown={(e) => (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? go(1) : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? go(-1) : null}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       tabIndex={0}
       className="focus:outline-none min-h-screen relative"
     >
       {/* Fundo estático para todos os slides */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/estrategia/images/background.jpeg)' }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/background.jpeg)' }} />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-900/80" />
         <div className="absolute inset-0 opacity-[0.02] bg-noise" />
       </div>
       {slides[currentSlide]}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-        <div className="glass-card rounded-2xl border border-white/20 bg-black/40 backdrop-blur-xl px-6 py-3 flex items-center gap-4 shadow-2xl">
-          <Button variant="outline" onClick={() => go(-1)} disabled={currentSlide === 0}>Anterior</Button>
-          <span className="text-white text-sm min-w-[90px] text-center font-medium">{currentSlide + 1} / {slides.length}</span>
-          <Button variant="outline" onClick={() => go(1)} disabled={currentSlide === slides.length - 1}>Próximo</Button>
+      
+      {/* Mobile-optimized navigation */}
+      <div className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 px-4 w-full max-w-sm">
+        <div className="glass-card rounded-2xl border border-white/20 bg-black/40 backdrop-blur-xl px-4 sm:px-6 py-3 flex items-center justify-between gap-2 sm:gap-4 shadow-2xl">
+          <Button 
+            variant="outline" 
+            onClick={() => go(-1)} 
+            disabled={currentSlide === 0}
+            className="text-xs sm:text-sm px-3 sm:px-4"
+          >
+            Anterior
+          </Button>
+          <span className="text-white text-xs sm:text-sm font-medium text-center flex-1">
+            {currentSlide + 1} / {slides.length}
+          </span>
+          <Button 
+            variant="outline" 
+            onClick={() => go(1)} 
+            disabled={currentSlide === slides.length - 1}
+            className="text-xs sm:text-sm px-3 sm:px-4"
+          >
+            Próximo
+          </Button>
         </div>
       </div>
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col space-y-6">
+
+      {/* Desktop navigation dots - hidden on mobile */}
+      <div className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-20 flex-col space-y-6">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -74,6 +122,20 @@ function App() {
             className={`w-4 h-4 rounded-full transition-all duration-300 ${currentSlide === i ? 'bg-white scale-125' : 'bg-white/30 hover:bg-white/80 hover:scale-110'}`}
           />
         ))}
+      </div>
+
+      {/* Mobile slide indicators */}
+      <div className="flex lg:hidden fixed top-4 left-1/2 -translate-x-1/2 z-50 px-4">
+        <div className="flex space-x-2 bg-black/40 backdrop-blur-xl rounded-full px-4 py-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Ir ao slide ${i + 1}`}
+              onClick={() => setCurrentSlide(i)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === i ? 'bg-white' : 'bg-white/40'}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

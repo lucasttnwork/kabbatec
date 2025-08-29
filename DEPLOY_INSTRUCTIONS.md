@@ -68,3 +68,4 @@ RAILWAY_TOKEN=f31fc99e-6ef6-4f77-8aec-38bddd235e64
 - [ ] Linkar ao projeto proposta-kabatec
 - [ ] Fazer deploy
 - [ ] Testar URL: https://[seu-dominio].railway.app/estrategia
+

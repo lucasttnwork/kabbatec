@@ -3,14 +3,14 @@ import { GlassContainer } from '@/components/GlassContainer'
 
 export const VisaoGeralSlide = () => (
   <SlideTemplate>
-    <div className="space-y-12">
+    <div className="space-y-8 lg:space-y-12">
       <div className="text-center">
-        <h2 className="text-7xl font-extrabold text-white mb-5 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-3 sm:mb-5 tracking-tight leading-tight">
           Demonstração de Planejamento de Execução — Kabbatec
         </h2>
-        <p className="text-white/80 text-2xl">(com explicações do porquê e do impacto de cada passo)</p>
+        <p className="text-white/80 text-base sm:text-lg lg:text-xl xl:text-2xl">(com explicações do porquê e do impacto de cada passo)</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
         {/* Card Objetivo */}
         <GlassContainer intensity="heavy" className="p-8 w-full max-w-xl">
           <div className="text-center mb-6">

@@ -23,7 +23,7 @@ export const GlassContainer = ({ children, intensity = 'medium', glow = false, c
     >
       {/* Subtle highlight line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-3xl bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-      <div className="relative z-10 p-8">{children}</div>
+      <div className="relative z-10 p-4 sm:p-6 lg:p-8">{children}</div>
     </motion.div>
   )
 }

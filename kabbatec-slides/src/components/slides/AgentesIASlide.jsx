@@ -6,14 +6,14 @@ import { Glossario, glossarioAgentes } from '@/components/Glossario'
 export const AgentesIASlide = () => (
   <SlideTemplate>
     <div className="space-y-10">
-      <motion.div className="text-center mb-12">
-        <h2 className="text-6xl font-extrabold text-white">
+      <motion.div className="text-center mb-8 lg:mb-12">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-4">
           Assistentes Inteligentes para Marketing e Vendas
         </h2>
-        <p className="text-xl text-white/80 max-w-5xl mx-auto">5 assistentes virtuais especializados que trabalham 24/7 para gerar e converter leads automaticamente.</p>
+        <p className="text-base sm:text-lg lg:text-xl text-white/80 max-w-5xl mx-auto">5 assistentes virtuais especializados que trabalham 24/7 para gerar e converter leads automaticamente.</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <AgentCard
           name="ATENDENTE VIRTUAL"
           avatar="🤖"

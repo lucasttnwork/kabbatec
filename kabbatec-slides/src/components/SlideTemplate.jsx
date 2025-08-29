@@ -5,8 +5,8 @@ const DEFAULT_BG = 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2
 
 export const SlideTemplate = ({ children, showDots = false }) => (
   <div className="min-h-screen relative overflow-hidden">
-    <div className="relative z-10 min-h-screen flex items-center justify-center p-8 pb-24">
-      <GlassContainer className="w-full max-w-7xl my-8">{children}</GlassContainer>
+    <div className="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 pb-20 sm:pb-24 pt-12 sm:pt-8">
+      <GlassContainer className="w-full max-w-7xl my-4 sm:my-8">{children}</GlassContainer>
     </div>
     {showDots && <NavigationDots />}
   </div>

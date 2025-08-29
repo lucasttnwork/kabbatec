@@ -10,3 +10,4 @@ restartPolicyType = "ON_FAILURE"
 [[deploy.envVars]]
 name = "NODE_ENV"
 value = "production"
+
