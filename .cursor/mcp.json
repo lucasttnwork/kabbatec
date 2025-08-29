@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--project-ref=hsdfmwzkgpcyyzcginib"
+      ],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "sbp_ccb7ecc0174edac780a9e764a6f86ca36fa0e1f1"
+      }
+    },
+    "railway-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@railway/mcp-server"
+      ]
+    },
+    "trello": {
+      "url": "http://localhost:8000/sse"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}
+
