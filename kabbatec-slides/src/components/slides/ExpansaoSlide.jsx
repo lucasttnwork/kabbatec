@@ -6,7 +6,7 @@ export const ExpansaoSlide = () => (
   <SlideTemplate>
     <div className="space-y-10">
       <div className="text-center mb-6">
-        <h2 className="text-6xl font-extrabold text-white tracking-tight">Fase de Expansão (90 dias em diante)</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight">Fase de Expansão (90 dias em diante)</h2>
         <p className="text-white/80 text-xl">Consolidar o que funciona, escalar resultados e expandir para novos processos</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

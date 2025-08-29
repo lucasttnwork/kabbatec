@@ -55,19 +55,46 @@ function App() {
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
 
-    if (isLeftSwipe) go(1)
-    if (isRightSwipe) go(-1)
+    // Apenas muda slide se for um swipe horizontal claro
+    if (isLeftSwipe && currentSlide < slides.length - 1) {
+      go(1)
+    } else if (isRightSwipe && currentSlide > 0) {
+      go(-1)
+    }
   }
 
-  // Remover troca de slide por scroll para permitir conteúdo longo por slide
+  // Prevenir troca de slide por scroll ou outras interações indesejadas
   useEffect(() => {
     const preventSpaceScroll = (e) => {
       if ((e.key === ' ' || e.key === 'Spacebar')) {
         e.preventDefault()
       }
     }
+
+    // Prevenir troca de slide por scroll wheel
+    const preventWheelNavigation = (e) => {
+      // Apenas impede que o scroll cause navegação de slides
+      // O scroll normal dentro do conteúdo ainda funciona
+      e.stopPropagation()
+    }
+
+    // Prevenir qualquer comportamento automático de slide
+    const preventAutoSlideChange = (e) => {
+      // Impede mudanças automáticas de slide por momentum scrolling ou outros eventos
+      if (e.type === 'scroll' && e.target === window) {
+        e.stopPropagation()
+      }
+    }
+
     window.addEventListener('keydown', preventSpaceScroll)
-    return () => window.removeEventListener('keydown', preventSpaceScroll)
+    window.addEventListener('wheel', preventWheelNavigation, { passive: true })
+    window.addEventListener('scroll', preventAutoSlideChange, { passive: true })
+    
+    return () => {
+      window.removeEventListener('keydown', preventSpaceScroll)
+      window.removeEventListener('wheel', preventWheelNavigation)
+      window.removeEventListener('scroll', preventAutoSlideChange)
+    }
   }, [])
 
   return (
@@ -77,7 +104,7 @@ function App() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       tabIndex={0}
-      className="focus:outline-none min-h-screen relative"
+      className="focus:outline-none min-h-screen relative overflow-x-hidden no-scroll-nav"
     >
       {/* Fundo estático para todos os slides */}
       <div className="fixed inset-0 -z-10">

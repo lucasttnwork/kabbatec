@@ -9,7 +9,7 @@ export const MarketOpportunitySlide = () => {
     <SlideTemplate>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-          <motion.h2 className="text-6xl font-bold text-white mb-8">
+          <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-8">
             Oportunidade
             <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Inexplorada</span>
           </motion.h2>

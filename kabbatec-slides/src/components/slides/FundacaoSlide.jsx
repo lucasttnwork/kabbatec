@@ -6,7 +6,7 @@ export const FundacaoSlide = () => (
   <SlideTemplate>
     <div className="space-y-12">
       <div className="text-center mb-8">
-        <h2 className="text-6xl font-extrabold text-white">Fase de Fundação (semana 0–1)</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white">Fase de Fundação (semana 0–1)</h2>
         <p className="text-white/80 text-xl">Objetivo: base técnica, comercial e digital pronta para captar e medir.</p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">

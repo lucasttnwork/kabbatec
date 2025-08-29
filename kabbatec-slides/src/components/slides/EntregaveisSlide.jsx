@@ -6,7 +6,7 @@ export const EntregaveisSlide = () => (
   <SlideTemplate>
     <div className="space-y-10">
       <div className="text-center mb-6">
-        <h2 className="text-6xl font-extrabold text-white">O Que Você Recebe na Primeira Fase</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white">O Que Você Recebe na Primeira Fase</h2>
         <p className="text-white/80 text-xl">Tudo que será entregue pronto e funcionando</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

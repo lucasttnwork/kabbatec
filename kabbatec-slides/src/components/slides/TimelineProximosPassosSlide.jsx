@@ -5,7 +5,7 @@ export const TimelineProximosPassosSlide = () => (
   <SlideTemplate>
     <div className="space-y-8">
       <div className="text-center mb-6">
-        <h2 className="text-5xl font-bold text-white">Timeline & Próximos Passos</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Timeline & Próximos Passos</h2>
       </div>
       <div className="max-w-5xl mx-auto">
         <TimelineStrategy

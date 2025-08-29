@@ -4,7 +4,7 @@ import { GlassContainer } from '@/components/GlassContainer'
 export const StrategySolutionSlide = () => (
   <SlideTemplate>
     <div className="text-center mb-12">
-      <h2 className="text-5xl font-bold text-white mb-4">Nossa Abordagem</h2>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Nossa Abordagem</h2>
       <p className="text-xl text-white/70">Estratégia integrada para máximo impacto</p>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -39,6 +39,12 @@ body { @apply bg-slate-900 text-white antialiased; }
   
   /* Touch-friendly buttons */
   .touch-target { @apply min-h-[44px] min-w-[44px]; }
+  
+  /* Prevent unwanted scroll behaviors */
+  .no-scroll-nav {
+    overscroll-behavior: contain;
+    scroll-behavior: auto;
+  }
 }
 
 /* Glassmorphism helpers */

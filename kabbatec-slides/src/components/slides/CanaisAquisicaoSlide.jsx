@@ -6,7 +6,7 @@ export const CanaisAquisicaoSlide = () => (
   <SlideTemplate>
     <div className="space-y-10">
       <motion.div className="text-center mb-12">
-        <h2 className="text-6xl font-extrabold text-white mb-3">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-3">
           Canais de aquisição — onde e como vamos ganhar
         </h2>
         <p className="text-white/80 text-xl">LinkedIn (prioridade #1), Google Ads (intenção alta) e Instagram (prova social)</p>

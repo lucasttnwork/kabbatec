@@ -6,7 +6,7 @@ export const PrimeirosSprintsSlide = () => (
   <SlideTemplate>
     <div className="space-y-10">
       <div className="text-center">
-        <h2 className="text-6xl font-extrabold text-white">Primeiros sprints (sem. 2–5)</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white">Primeiros sprints (sem. 2–5)</h2>
         <p className="text-white/80 text-xl">Geração de demanda imediata + assistentes inteligentes operando</p>
       </div>
 

@@ -6,7 +6,7 @@ export const MetricasSucessoSlide = () => (
   <SlideTemplate>
     <div className="space-y-10">
       <div className="text-center mb-6">
-        <h2 className="text-6xl font-extrabold text-white">Como Medir e Garantir o Sucesso</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white">Como Medir e Garantir o Sucesso</h2>
         <p className="text-white/80 text-xl">Métricas claras, acompanhamento semanal e definição de resultados</p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
