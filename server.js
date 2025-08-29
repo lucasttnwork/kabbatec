@@ -10,6 +10,9 @@ app.use('/estrategia', serveStatic(path.join(__dirname, 'kabbatec-slides', 'dist
   index: ['index.html']
 }));
 
+// Serve images globally to support both /images/* and /estrategia/images/* paths
+app.use('/images', serveStatic(path.join(__dirname, 'kabbatec-slides', 'dist', 'images')));
+
 // Fallback to serve index.html for SPA routing on /estrategia route
 app.get('/estrategia/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'kabbatec-slides', 'dist', 'index.html'));
