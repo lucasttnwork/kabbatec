@@ -1,0 +1,13 @@
+{
+  "mcp": {
+    "sampling": {
+      "enabled": true,
+      "providers": [
+        {
+          "name": "openai",
+          "apiKey": "${OPENAI_API_KEY}"
+        }
+      ]
+    }
+  }
+}
