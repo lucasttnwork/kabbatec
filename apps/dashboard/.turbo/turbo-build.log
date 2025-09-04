@@ -1,0 +1,5 @@
+ WARN  Cannot switch to pnpm@9: "9" is not a valid version
+
+> @bmad/dashboard@0.1.0 build C:\Users\Lucas\OneDrive\Documentos\Projetos cursor\Kabatec\bmad\apps\dashboard
+> tsc -p .
+
